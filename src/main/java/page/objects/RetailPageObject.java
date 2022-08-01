@@ -30,8 +30,8 @@ public class RetailPageObject extends Base {
 
 	@FindBy(id="input-password")
 	private WebElement loginPassword;
-
-	@FindBy(id="//*[@id=\"content\"]/div/div[2]/div/form")
+	
+	@FindBy(xpath = "//input[@class='btn btn-primary']")
 	private WebElement loginButton;
 
 	@FindBy(xpath = "//h2[text()='Returning Customer']")
@@ -50,11 +50,11 @@ public class RetailPageObject extends Base {
 
 	@FindBy(xpath = "//*[@id='input-website']")
 	private WebElement websiteInput;
-
-	@FindBy(xpath = "//*[@id='tax']")
+	
+	@FindBy(xpath = "//*[@id='input-tax']")
 	private WebElement taxInput;
 
-	@FindBy(xpath = "//*[@id='input-cheque']")
+	@FindBy(xpath = "//input[@value='cheque']")
 	private WebElement paymentCheque;
 
 	@FindBy(xpath = "//*[@id='content']/form/div/div/input[1]")
@@ -63,7 +63,7 @@ public class RetailPageObject extends Base {
 	@FindBy(xpath = "//*[@id='content']/form/div/div/input[2]")
 	private WebElement continueButton;
 
-	@FindBy(xpath = "//i[@class='fa fa-check-circle")
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	private WebElement registerAffiliateSuccessMessage;
 
 
@@ -115,7 +115,6 @@ public class RetailPageObject extends Base {
 	@FindBy(xpath = "//*[@id=\"content\"]/form/div/div[2]/input")
 	private WebElement editAccountContinueButton;
 
-//	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	@FindBy(xpath = "//*[@id=\"account-account\"]/div[1]")
 	private WebElement editAccountSuccessMessage;
 
@@ -184,11 +183,10 @@ public class RetailPageObject extends Base {
 	public void clickContinueButton() {
 		continueButton.click();
 	}
-	public boolean isCreateSuccessMessagePresent() {
-		if(registerAffiliateSuccessMessage.isDisplayed())
-			return true;
-		else
-			return false;
+	public String registerAffiliateSuccessMessage() {
+		Utils.waitSomeTime(500);
+		String retailSuccessMessageText = registerAffiliateSuccessMessage.getText().split("\n")[0];
+		return retailSuccessMessageText;
 	}
 
 
@@ -200,19 +198,19 @@ public class RetailPageObject extends Base {
 		bankTransferButton.click();
 	}
 	public void fillBankNameInput(String bankName) {
-		bankNameInput.sendKeys("CityBank");
+		bankNameInput.sendKeys(bankName);
 	}
 	public void fillAbaNumber(String abaNumber) {
-		abaNumberInput.sendKeys("99994545");
+		abaNumberInput.sendKeys(abaNumber);
 	}
 	public void fillSwiftCodeInput(String swiftCode) {
-		swiftCodeInput.sendKeys("33663366");
+		swiftCodeInput.sendKeys(swiftCode);
 	}
 	public void fillAccountName(String accountName) {
-		accountNameInput.sendKeys("Checking");
+		accountNameInput.sendKeys(accountName);
 	}
 	public void fillAccountNumber(String accountNumber) {
-		accountNumberInput.sendKeys("123-44-5678");
+		accountNumberInput.sendKeys(accountNumber);
 	}
 	public void editAffiliateContinueButton() {
 		editAffiliateContinueButton.click();

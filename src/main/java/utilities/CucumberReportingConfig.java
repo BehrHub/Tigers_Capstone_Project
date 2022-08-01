@@ -18,7 +18,6 @@ public class CucumberReportingConfig {
 		List<String> jsonFiles = new ArrayList<>();
 		jsonFiles.add("target\\cucumber.json");
 		
-
 		String buildNumber = "1";
 		String projectName = "Behrang Eini's Capstone Project - Tiger";
 

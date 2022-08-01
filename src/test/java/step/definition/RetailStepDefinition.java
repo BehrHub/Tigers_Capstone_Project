@@ -86,9 +86,10 @@ public class RetailStepDefinition extends Base {
 	}
 
 	@Then("User should see a success message")
-	public void user_should_see_a_success_message() {
-		Assert.assertTrue(retailPageObj.isCreateSuccessMessagePresent());
-		logger.info("success message is present");
+	public void user_should_see_a_success_message(String expectedText) {
+		String actualText = retailPageObj.registerAffiliateSuccessMessage();
+		Assert.assertEquals(expectedText, actualText);
+		logger.info("Success message is displayed successfully");
 	}
 
 

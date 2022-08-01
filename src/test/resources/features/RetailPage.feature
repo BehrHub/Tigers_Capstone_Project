@@ -1,14 +1,15 @@
+@smoke
 Feature: Retail Page
 
 Background:
 		Given User is on Retail website
 		And User click on MyAccount
 		When User click on Login 
-		And User enter username 'behrang.eini@tekschool.us' and password 'TEK!@#123'
+		And User enter username 'daniella@gmail.com' and password 'TEK!@#123'
 		And User click on Login button
 		Then User should be logged in to MyAccount dashboard
 
-@registerAffiliate
+@registerAffiliate @smoke
 Scenario: Register as an Affiliate user with Cheque Payment Method
 		When User click on 'Register for an Affiliate Account' link
 		And User fill affiliate form with below information
@@ -18,7 +19,7 @@ Scenario: Register as an Affiliate user with Cheque Payment Method
 		And User click on Continue button
 		Then User should see a success message
 
-@editAffiliate
+@editAffiliate @smoke
 Scenario: Edit your affiliate information from Cheque payment method to Bank Transfer
 		When User click on ‘Edit your affiliate information' link 
 		And user click on Bank Transfer radio button
@@ -28,7 +29,7 @@ Scenario: Edit your affiliate information from Cheque payment method to Bank Tra
 		And User click on Continue button 
 		Then User should see a success message 
 
-@editAccountInfo
+@editAccountInfo @smoke
 Scenario: Edit your account Information 
 		When User click on ‘Edit your account information’ link 
 		And User modify below information

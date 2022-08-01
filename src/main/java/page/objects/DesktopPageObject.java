@@ -136,8 +136,8 @@ public class DesktopPageObject extends Base {
 		String desktopSuccessMessageText = successMessageHpLp3065.getText().split("\n")[0];
 		return desktopSuccessMessageText;
 	}
-	
-	
+
+
 	//SCENARIO #3 METHODS
 	public void clickOnAddToCartOptionCanon() {
 		addToCartCanonEOS5DCamera.click();
